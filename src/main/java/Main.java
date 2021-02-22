@@ -10,6 +10,14 @@ public class Main {
         addFriends.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                CreateList list =
+                        new CreateList(
+                                "5e54954f0482784f8299d866c2e1307e12a435afebe0f6a948314815491c71f9e38136b62438983c7a694"
+                        );
+
+               System.out.println(
+                       list.createList(list.getData())
+               );
 
             }
         });
