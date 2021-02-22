@@ -9,7 +9,11 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 
 public class CreateList {
+    String ACCESS_TOKEN;
 
+    CreateList(String ACCESS_TOKEN) {
+        this.ACCESS_TOKEN = ACCESS_TOKEN;
+    }
     private ArrayList<Long> createList(String data) {
         ArrayList<Long> resultList = new ArrayList<>();
         if (!data.isEmpty()) {
@@ -31,7 +35,7 @@ public class CreateList {
 
         for (Long value: list) {
             try {
-                url = new URL("");
+                url = new URL("https://api.vk.com/method/users.get?relation&access_token=" + ACCESS_TOKEN + "&v=5.130");
             } catch (IOException e) {
                 System.out.println("Error Unknonw: " + e);
             }
