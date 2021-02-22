@@ -14,12 +14,15 @@ public class ParseURL {
 
     public String parse(String link) {
         StringBuilder content = new StringBuilder();
+
         //953 - Balti
         //country id = 15
         // final String ACCESS_TOKEN = "5e54954f0482784f8299d866c2e1307e12a435afebe0f6a948314815491c71f9e38136b62438983c7a694";
 
         try {
-            URL url = new URL(link);
+            URL url = new URL(
+                    link + ACCESS_TOKEN + "&v=5.130"
+            );
             URLConnection urlConn = url.openConnection();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
             String line;
