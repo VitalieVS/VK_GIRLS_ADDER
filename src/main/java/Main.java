@@ -1,6 +1,12 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
 public class Main {
     private JButton addFriends;
@@ -19,7 +25,7 @@ public class Main {
                AddFriends addFriends = new AddFriends();
                 try {
                     addFriends.addFriends(list.createList(list.getData()),
-                            "5e54954f0482784f8299d866c2e1307e12a435afebe0f6a948314815491c71f9e38136b62438983c7a694");
+                            "24723cc38f918b011d76e705109ded4110acdb469d512e95335d4f29606920cae89314e3248928d3a5dc2");
                 } catch (InterruptedException interruptedException) {
                     interruptedException.printStackTrace();
                 }
@@ -32,6 +38,7 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Анти Мымра");
         frame.setContentPane(new Main().panelMain);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

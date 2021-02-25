@@ -10,7 +10,7 @@ public class AddFriends {
     public void addFriends(ArrayList<Long> list, String ACCESS_TOKEN) throws InterruptedException {
         StringBuilder content = new StringBuilder();
         for (Long value: list) {
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(30);
             try {
                 URL url = new URL(
                         "https://api.vk.com/method/friends.add?&user_id="
