@@ -6,13 +6,10 @@ import java.net.URLConnection;
 
 public class ParseURL {
 
-    final String ACCESS_TOKEN;
+    final String link =
+            "https://api.vk.com/method/users.search?count=150&city=953&country=15&age_from=14&age_to=21&fields=relation&sex=1&access_token="
 
-    ParseURL(String ACCESS_TOKEN) {
-        this.ACCESS_TOKEN = ACCESS_TOKEN;
-    }
-
-    public String parse(String link) {
+    public String parse() {
         StringBuilder content = new StringBuilder();
 
         //953 - Balti
@@ -21,10 +18,10 @@ public class ParseURL {
 
         try {
             URL url = new URL(
-                    link + ACCESS_TOKEN + "&v=5.130"
+                    link + Main.ACCESS_TOKEN + "&v=5.130"
             );
-            URLConnection urlConn = url.openConnection();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
+            URLConnection parserConn = url.openConnection();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(parserConn.getInputStream()));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 content.append(line).append("\n");

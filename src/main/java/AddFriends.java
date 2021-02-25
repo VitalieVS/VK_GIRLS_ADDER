@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class AddFriends {
     CaptchaHandler captchaHandler = new CaptchaHandler();
 
-    public void addFriends(ArrayList<Long> list, String ACCESS_TOKEN) throws InterruptedException {
+    public void addFriends(ArrayList<Long> list) throws InterruptedException {
         StringBuilder content = new StringBuilder();
         for (Long value: list) {
             TimeUnit.SECONDS.sleep(5);
@@ -19,7 +19,7 @@ public class AddFriends {
                 URL url = new URL(
                         "https://api.vk.com/method/friends.add?&user_id="
                                 + value + "&access_token="
-                                + ACCESS_TOKEN
+                                + Main.ACCESS_TOKEN
                                 + "&v=5.130"
                 );
                 URLConnection urlConn = url.openConnection();
@@ -43,5 +43,11 @@ public class AddFriends {
                 System.out.println("Error:" + e);
             }
         }
+    }
+
+    boolean sendCaptcha() {
+
+
+        return true;
     }
 }

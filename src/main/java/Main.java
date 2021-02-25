@@ -11,7 +11,7 @@ import java.net.URL;
 public class Main {
     private JButton addFriends;
     private JPanel panelMain;
-
+    static String ACCESS_TOKEN = "24723cc38f918b011d76e705109ded4110acdb469d512e95335d4f29606920cae89314e3248928d3a5dc2";
     public Main() {
         addFriends.addActionListener(new ActionListener() {
             @Override
@@ -23,9 +23,9 @@ public class Main {
                );
 
                AddFriends addFriends = new AddFriends();
+
                 try {
-                    addFriends.addFriends(list.createList(list.getData()),
-                            "24723cc38f918b011d76e705109ded4110acdb469d512e95335d4f29606920cae89314e3248928d3a5dc2");
+                    addFriends.addFriends(list.createList(list.getData()));
                 } catch (InterruptedException interruptedException) {
                     interruptedException.printStackTrace();
                 }

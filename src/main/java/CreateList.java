@@ -35,11 +35,8 @@ public class CreateList {
     }
 
     public String getData() {
-        ParseURL parser = new ParseURL(
-                "24723cc38f918b011d76e705109ded4110acdb469d512e95335d4f29606920cae89314e3248928d3a5dc2"
-        );
+        ParseURL parser = new ParseURL();
 
-        return parser.parse(
-                "https://api.vk.com/method/users.search?count=150&city=953&country=15&age_from=14&age_to=21&fields=relation&sex=1&access_token=");
+        return parser.parse();
     }
 }
