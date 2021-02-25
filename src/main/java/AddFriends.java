@@ -1,3 +1,5 @@
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,10 +9,12 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class AddFriends {
+    CaptchaHandler captchaHandler = new CaptchaHandler();
+
     public void addFriends(ArrayList<Long> list, String ACCESS_TOKEN) throws InterruptedException {
         StringBuilder content = new StringBuilder();
         for (Long value: list) {
-            TimeUnit.SECONDS.sleep(30);
+            TimeUnit.SECONDS.sleep(5);
             try {
                 URL url = new URL(
                         "https://api.vk.com/method/friends.add?&user_id="
@@ -26,8 +30,15 @@ public class AddFriends {
                     content.append(line).append("\n");
                 }
                 bufferedReader.close();
-                System.out.println(content);
-                System.out.println("ID: " + value + "added!");
+
+                if (content.toString().contains("captcha")) {
+                    JSONObject captchaLink = new JSONObject(content.toString());
+                    String link = captchaLink.getJSONObject("error").getString("captcha_img");
+                    System.out.println(captchaLink);
+                    captchaHandler.getCaptcha(link);
+                } else {
+                    System.out.println("ID: " + value + " added!");
+                }
             } catch (IOException e) {
                 System.out.println("Error:" + e);
             }

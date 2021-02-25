@@ -36,9 +36,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Анти Мымра");
+        JFrame frame = new JFrame("Add Girls!");
         frame.setContentPane(new Main().panelMain);
-
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
