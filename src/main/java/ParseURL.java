@@ -7,7 +7,7 @@ import java.net.URLConnection;
 public class ParseURL {
 
     final String link =
-            "https://api.vk.com/method/users.search?count=150&city=953&country=15&age_from=14&age_to=21&fields=relation&sex=1&access_token="
+            "https://api.vk.com/method/users.search?count=150&city=953&country=15&age_from=14&age_to=21&fields=relation&sex=1&access_token=";
 
     public String parse() {
         StringBuilder content = new StringBuilder();
